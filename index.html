@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cub Scout Pack 242, Colonial Virginia Council</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Configure Tailwind CSS with the Cub Scout color theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'scout-blue': '#0038a8',
+                        'scout-gold': '#fcd116',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            object-fit: cover;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-scout-blue text-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Cub Scout Pack 242</h1>
+            <div>
+                <a href="#home" class="px-4 hover:text-scout-gold">Home</a>
+                <a href="#calendar" class="px-4 hover:text-scout-gold">Calendar</a>
+                <a href="#about" class="px-4 hover:text-scout-gold">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Image Carousel Section -->
+        <section id="home" class="mb-12">
+            <div class="carousel-container shadow-lg">
+                <!-- Replace these with your own images -->
+                <div class="carousel-slide">
+                    <img src="assets/1.jpg" alt="Wreaths Across America">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/2.jpg" alt="Fishing">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/3.jpg" alt="Pinewood Derby">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/4.jpg" alt="Play">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/5.jpg" alt="Camping">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/6.jpg" alt="Trips">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Welcome to Our Pack!</h2>
+            <p class="max-w-3xl mx-auto text-lg">
+                We are Cub Scout Pack 242, based in Newport News, VA. Our pack is dedicated to providing a fun and educational program for boys and girls that builds character, trains them in the responsibilities of citizenship, and develops personal fitness. Join us for exciting adventures!
+            </p>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-6">Pack Calendar</h2>
+            <div class="bg-white p-4 rounded-lg shadow-lg flex justify-center">
+                <iframe src="https://calendar.google.com/calendar/embed?src=6813a35e20799c528091bb4b674c09d832f8533ec6b6c50f8d48823b9d555de0%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-2/3 md:pr-8">
+                    <p class="mb-4">Our meetings are held every Monday at 6:30 PM at St. Andrew's Episcopal Church, 45 Main St Newport News.</p>
+                    <p class="font-semibold">For more information, please contact us at <a href="mailto:pack242cvc@gmail.com" class="text-scout-blue hover:underline">pack242cvc@gmail.com</a>.</p>
+                </div>
+                <div class="md:w-1/3 mt-6 md:mt-0">
+                    <!-- 
+                      IMPORTANT: Make sure you have an 'images' folder inside your 'assets' folder,
+                      and place your 'Cub-Scout-Logo.png' file in there for this to display correctly.
+                    -->
+                    <img src="assets/Cub-Scout-Logo.png" alt="Pack 242 Logo" class="mx-auto">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-scout-blue text-white mt-8 py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Cub Scout Pack 242. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Carousel JavaScript
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-slide");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
+
+
