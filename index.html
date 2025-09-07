@@ -155,12 +155,17 @@
     <script>
         // Simple Carousel JavaScript
         let slideIndex = 1;
-        showSlides(slideIndex);
+        let slideTimeout; // Variable to hold the timer
 
+        showSlides(slideIndex); // Show the first slide and start the timer
+
+        // This function is called when a user clicks the arrows
         function plusSlides(n) {
+            clearTimeout(slideTimeout); // Reset the timer
             showSlides(slideIndex += n);
         }
 
+        // This is the main function to display slides
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("carousel-slide");
@@ -170,6 +175,11 @@
                 slides[i].style.display = "none";
             }
             slides[slideIndex-1].style.display = "block";
+
+            // Set a new timer to automatically advance to the next slide after 3 seconds (3000 milliseconds)
+            slideTimeout = setTimeout(function() {
+                plusSlides(1);
+            }, 3000);
         }
     </script>
 
